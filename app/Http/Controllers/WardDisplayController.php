@@ -82,14 +82,14 @@ class WardDisplayController extends Controller
         $bedChunks = array_chunk($bedlist, 10); // ✅ safe to use
     
         // Initialize all role arrays
-        $rolesct = ['consultant' => '-', 'firstcall' => '-', 'secondcall' => '-', 'thirdcall' => '-', 'icuam' => '-', 'icupm' => '-'];
-        $rolescd = ['consultant' => '-', 'cardiologist' => '-', 'firstcall' => '-', 'secondcall' => '-', 'mo' => '-', 'ep' => '-'];
-        $rolesnm = ['firstcall' => '-', 'secondcall' => '-', 'weekendam' => '-', 'weekendpm' => '-', 'oncall' => '-'];
-        $rolesanaes = ['consultant' => '-', 'sr' => '-', 'sricu' => '-', 'mo' => '-'];
-        $rolespchc = ['consultant' => '-', 'cardiologist' => '-', 'firstcall' => '-', 'secondcall' => '-', 'mo' => '-'];
-        $rolesoth = ['perfusionist' => '-', 'dietitian' => '-', 'physiotherapist' => '-', 'resplab' => '-', 'cvt' => '-'];
-        $rolesert = ['ioam' => '-', 'iopm' => '-', 'iooncall' => '-', 'fwam' => '-', 'fwpm' => '-', 'fwoncall' => '-', 'fsam' => '-', 'fspm' => '-', 'fsoncall' => '-', 'rsam' => '-', 'rspm' => '-', 'rsoncall' => '-'];
-        $rolessa = ['tlam' => '-', 'tlpm' => '-', 'tloncall' => '-', 'iam' => '-', 'ipm' => '-', 'ioncall' => '-', 'medam' => '-', 'medpm' => '-', 'medoncall' => '-', 'runam' => '-', 'runpm' => '-', 'runoncall' => '-', 'obsam' => '-', 'obspm' => '-', 'obsoncall' => '-'];
+        $rolesct = ['consultant' => '', 'firstcall' => '', 'secondcall' => '', 'thirdcall' => '', 'icuam' => '', 'icupm' => ' '];
+        $rolescd = ['consultant' => '', 'cardiologist' => '', 'firstcall' => '', 'secondcall' => '', 'mo' => '', 'ep' => ''];
+        $rolesnm = ['firstcall' => '', 'secondcall' => '', 'weekendam' => '', 'weekendpm' => '', 'oncall' => ''];
+        $rolesanaes = ['consultant' => '', 'sr' => '', 'sricu' => '', 'mo' => ''];
+        $rolespchc = ['consultant' => '', 'cardiologist' => '', 'firstcall' => '', 'secondcall' => '', 'mo' => ''];
+        $rolesoth = ['perfusionist' => '', 'dietitian' => '', 'physiotherapist' => '', 'resplab' => '', 'cvt' => ''];
+        $rolesert = ['ioam' => '', 'iopm' => '', 'iooncall' => '', 'fwam' => '', 'fwpm' => '', 'fwoncall' => '', 'fsam' => '', 'fspm' => '', 'fsoncall' => '', 'rsam' => '', 'rspm' => '', 'rsoncall' => ''];
+        $rolessa = ['tlam' => '', 'tlpm' => '', 'tloncall' => '', 'iam' => '', 'ipm' => '', 'ioncall' => '', 'medam' => '', 'medpm' => '', 'medoncall' => '', 'runam' => '', 'runpm' => '', 'runoncall' => '', 'obsam' => '', 'obspm' => '', 'obsoncall' => ''];
     
         // Assign names to roles if matched
         foreach ($todayctlist as $staff) {
@@ -160,12 +160,12 @@ class WardDisplayController extends Controller
 
         // Initialize default values
         $rolesct = [
-            'consultant' => '-',
-            'firstcall' => '-',
-            'secondcall' => '-',
-            'thirdcall' => '-',
-            'icuam' => '-',
-            'icupm' => '-'
+            'consultant' => '',
+            'firstcall' => '',
+            'secondcall' => '',
+            'thirdcall' => '',
+            'icuam' => '',
+            'icupm' => ''
         ];
 
         // Loop through and assign names based on position_type
@@ -184,12 +184,12 @@ class WardDisplayController extends Controller
 
         // Initialize default values
         $rolescd = [
-            'consultant' => '-',
-            'cardiologist' => '-',
-            'firstcall' => '-',
-            'secondcall' => '-',
-            'mo' => '-',
-            'ep' => '-'
+            'consultant' => '',
+            'cardiologist' => '',
+            'firstcall' => '',
+            'secondcall' => '',
+            'mo' => '',
+            'ep' => ''
         ];
 
         // Loop through and assign names based on position_type
@@ -207,11 +207,11 @@ class WardDisplayController extends Controller
         $todaynmlist = OncallNurseManagerList::where('oncall_date', Carbon::today())->where('status_id', 2)->get();
 
         $rolesnm = [
-            'firstcall' => '-',
-            'secondcall' => '-',
-            'weekendam' => '-',
-            'weekendpm' => '-',
-            'oncall' => '-',
+            'firstcall' => '',
+            'secondcall' => '',
+            'weekendam' => '',
+            'weekendpm' => '',
+            'oncall' => '',
         ];
 
         foreach ($todaynmlist as $staff) {
@@ -228,10 +228,10 @@ class WardDisplayController extends Controller
         $todayanaeslist = OncallAnaesList::where('oncall_date', Carbon::today())->where('status_id', 2)->get();
 
         $rolesanaes = [
-            'consultant' => '-',
-            'sr' => '-',
-            'sricu' => '-',
-            'mo' => '-',
+            'consultant' => '',
+            'sr' => '',
+            'sricu' => '',
+            'mo' => '',
         ];
 
         foreach ($todayanaeslist as $staff) {
@@ -248,11 +248,11 @@ class WardDisplayController extends Controller
         $todaypchclist = OncallPchcList::where('oncall_date', Carbon::today())->where('status_id', 2)->get();
 
         $rolespchc = [
-            'consultant' => '-',
-            'cardiologist' => '-',
-            'firstcall' => '-',
-            'secondcall' => '-',
-            'mo' => '-',
+            'consultant' => '',
+            'cardiologist' => '',
+            'firstcall' => '',
+            'secondcall' => '',
+            'mo' => '',
         ];
 
         foreach ($todaypchclist as $staff) {
@@ -269,11 +269,11 @@ class WardDisplayController extends Controller
         $todayothlist = OncallOtherList::where('oncall_date', Carbon::today())->where('status_id', 2)->get();
 
         $rolesoth = [
-            'perfusionist' => '-',
-            'dietitian' => '-',
-            'physiotherapist' => '-',
-            'resplab' => '-',
-            'cvt' => '-',
+            'perfusionist' => '',
+            'dietitian' => '',
+            'physiotherapist' => '',
+            'resplab' => '',
+            'cvt' => '',
         ];
 
         foreach ($todayothlist as $staff) {
@@ -299,18 +299,18 @@ class WardDisplayController extends Controller
         $todayertlist = $query->get();
 
         $rolesert = [
-            'ioam' => '-',
-            'iopm' => '-',
-            'iooncall' => '-',
-            'fwam' => '-',
-            'fwpm' => '-',
-            'fwoncall' => '-',
-            'fsam' => '-',
-            'fspm' => '-',
-            'fsoncall' => '-',
-            'rsam' => '-',
-            'rspm' => '-',
-            'rsoncall' => '-',
+            'ioam' => '',
+            'iopm' => '',
+            'iooncall' => '',
+            'fwam' => '',
+            'fwpm' => '',
+            'fwoncall' => '',
+            'fsam' => '',
+            'fspm' => '',
+            'fsoncall' => '',
+            'rsam' => '',
+            'rspm' => '',
+            'rsoncall' => '',
         ];
 
         foreach ($todayertlist as $staff) {
@@ -336,21 +336,21 @@ class WardDisplayController extends Controller
         $todaysalist = $query->get();
 
         $rolessa = [
-            'tlam' => '-',
-            'tlpm' => '-',
-            'tloncall' => '-',
-            'iam' => '-',
-            'ipm' => '-',
-            'ioncall' => '-',
-            'medam' => '-',
-            'medpm' => '-',
-            'medoncall' => '-',
-            'runam' => '-',
-            'runpm' => '-',
-            'runoncall' => '-',
-            'obsam' => '-',
-            'obspm' => '-',
-            'obsoncall' => '-',
+            'tlam' => '',
+            'tlpm' => '',
+            'tloncall' => '',
+            'iam' => '',
+            'ipm' => '',
+            'ioncall' => '',
+            'medam' => '',
+            'medpm' => '',
+            'medoncall' => '',
+            'runam' => '',
+            'runpm' => '',
+            'runoncall' => '',
+            'obsam' => '',
+            'obspm' => '',
+            'obsoncall' => '',
         ];
 
         foreach ($todaysalist as $staff) {

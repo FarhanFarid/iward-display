@@ -10,7 +10,7 @@
         </div>
     </div>
 </div>
-<div class="row mt-2 px-3" style="justify-content: center; align-items: center;">
+{{-- <div class="row mt-2 px-3" style="justify-content: center; align-items: center;">
     <div class="row">
         <div class="col-md-12">
             <div id="nursemanager-section">
@@ -18,7 +18,7 @@
             </div>
         </div> 
     </div>
-</div>
+</div> --}}
 <div class="row mt-2 px-3" style="justify-content: center; align-items: center;">
     <div class="row">
         <div class="col-md-12">

@@ -42,6 +42,11 @@
 <div class="row mt-2 px-3" style="justify-content: center; align-items: center;">
     <div class="row">
         <div class="col-md-6">
+            <div id="nursemanager-section">
+                @include('display.general.sections.nursemanager')
+            </div>
+        </div>
+        <div class="col-md-6">
             <div id="other-section">
                 @include('display.general.sections.other')
             </div>

@@ -40,6 +40,14 @@
 				max-height: 90vh; /* Ensures it doesn't exceed the screen */
 				overflow: hidden; /* Prevents internal scrolling */
 			}
+			.custom-bordered th,
+			.custom-bordered td {
+				border: 1px solid #1a7b15 !important;
+			}
+
+			.custom-bordered {
+				border-color: #1a7b15 !important;
+			}
 		</style>
 		@stack('css')
 	</head>
