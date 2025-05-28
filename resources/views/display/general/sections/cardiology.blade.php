@@ -17,7 +17,7 @@
                     <tr>
                         <td style="padding: 2px; width: 15%;"><b>Consultant</b></td>
                         <td class="text-truncate" style="padding: 2px; padding-right: 10px !important;">: {{ $rolescd['consultant'] }}</td>
-                        <td style="padding: 2px; width: 15%;"><b>Cardiologist</b></td>
+                        <td style="padding: 2px; width: 16%;"><b>Cardiologist</b>&nbsp;</td>
                         <td class="text-truncate" style="padding: 2px;">: {{ $rolescd['cardiologist'] }}</td>
                     </tr>
                     <tr>

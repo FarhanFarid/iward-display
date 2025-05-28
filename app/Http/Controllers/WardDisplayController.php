@@ -48,8 +48,12 @@ class WardDisplayController extends Controller
                 break;
             }
         }
+
+        // dd($filteredWard);
     
-        $bedlist = []; // ✅ initialize first
+        $bedlist = [];
+        $bedlistns = [];
+
     
         if ($filteredWard && isset($filteredWard['BedList'])) {
             foreach ($filteredWard['BedList'] as $bed) {
@@ -75,12 +79,40 @@ class WardDisplayController extends Controller
                     }
                 }
     
-                $bedlist[] = $bed; // ✅ even if no patdemo, still push
+                $bedlist[] = $bed;
             }
         }
+
+        if ($filteredWard && isset($filteredWard['NurseStation'])) {
+            foreach ($filteredWard['NurseStation'] as $bed) {
+                if (isset($bed['episodeno']) && !empty($bed['episodeno'])) {
+                    $epsdno = $bed['episodeno'];
+                    $uripatdemo = env('PAT_DEMO') . $epsdno;
     
-        $bedChunks = array_chunk($bedlist, 10); // ✅ safe to use
+                    try {
+                        $response = $client->request('GET', $uripatdemo);
+                        if ($response->getStatusCode() == 200) {
+                            $patdemoContent = json_decode($response->getBody(), true);
+                            $bed['patdemo'] = $patdemoContent['data'];
+                        }
+                    } catch (\Exception $e) {
+                        Log::error($e->getMessage(), [
+                            'file' => $e->getFile(),
+                            'line' => $e->getLine(),
+                        ]);
+                        return response()->json([
+                            'status' => 'failed',
+                            'message' => 'Internal error happened. Try again',
+                        ], 200);
+                    }
+                }
     
+                $bedlistns[] = $bed;
+            }
+        }
+
+        // dd($bedlistns);
+        
         // Initialize all role arrays
         $rolesct = ['consultant' => '', 'firstcall' => '', 'secondcall' => '', 'thirdcall' => '', 'icuam' => '', 'icupm' => ' '];
         $rolescd = ['consultant' => '', 'cardiologist' => '', 'firstcall' => '', 'secondcall' => '', 'mo' => '', 'ep' => ''];
@@ -150,8 +182,8 @@ class WardDisplayController extends Controller
             'rolesert',
             'rolessa',
             'getward',
-            'bedChunks',
-            'bedlist'
+            'bedlistns',
+            'bedlist',
         ));
     }    
 
