@@ -111,7 +111,10 @@ class WardDisplayController extends Controller
             }
         }
 
-        // dd($bedlistns);
+        $combinedList = array_merge($bedlist, $bedlistns);
+        $bedChunks = array_chunk($combinedList, 15);        
+
+        // dd($chunks);
         
         // Initialize all role arrays
         $rolesct = ['consultant' => '', 'firstcall' => '', 'secondcall' => '', 'thirdcall' => '', 'icuam' => '', 'icupm' => ' '];
@@ -184,6 +187,7 @@ class WardDisplayController extends Controller
             'getward',
             'bedlistns',
             'bedlist',
+            'bedChunks',
         ));
     }    
 

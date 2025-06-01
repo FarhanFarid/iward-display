@@ -10,9 +10,11 @@
         <div class="carousel-item">
             @include('display.general.updates.oncalltwo')
         </div>
-        <div class="carousel-item">
-            @include('display.sections.patients')
-        </div>
+        @foreach($bedChunks as $index => $chunk)
+            <div class="carousel-item">
+                @include('display.sections.patientstwo', ['chunk' => $chunk, 'getward' => $getward])
+            </div>
+        @endforeach
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
