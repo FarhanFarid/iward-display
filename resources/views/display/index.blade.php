@@ -12,7 +12,7 @@
         </div>
         @foreach($bedChunks as $index => $chunk)
             <div class="carousel-item">
-                @include('display.sections.patientstwo', ['chunk' => $chunk, 'getward' => $getward])
+                @include('display.sections.patients', ['chunk' => $chunk, 'getward' => $getward])
             </div>
         @endforeach
     </div>

@@ -12,6 +12,8 @@ use App\Models\OncallPchcList;
 use App\Models\OncallResponseTeamList;
 use App\Models\OncallStaffAssignmentList;
 use App\Models\WardLocation;
+use App\Models\PatientManagements;
+use App\Models\Careproviders;
 
 
 use Auth;
@@ -59,6 +61,7 @@ class WardDisplayController extends Controller
             foreach ($filteredWard['BedList'] as $bed) {
                 if (isset($bed['episodeno']) && !empty($bed['episodeno'])) {
                     $epsdno = $bed['episodeno'];
+                    $mrn = $bed['mrn'];
                     $uripatdemo = env('PAT_DEMO') . $epsdno;
     
                     try {
@@ -67,6 +70,17 @@ class WardDisplayController extends Controller
                             $patdemoContent = json_decode($response->getBody(), true);
                             $bed['patdemo'] = $patdemoContent['data'];
                         }
+
+                        $getflag = PatientManagements::where('mrn', $mrn)->first();
+                        if ($getflag != null) {
+                            $bed['flag'] = $getflag;
+                        }
+
+                        $getcareprov = Careproviders::where('cpName', $patdemoContent['data']['epiDoc'])->select('cpCode', 'cpTypeID')->first();
+                        if ($getcareprov != null) {
+                            $bed['careprov'] = $getcareprov;
+                        }
+
                     } catch (\Exception $e) {
                         Log::error($e->getMessage(), [
                             'file' => $e->getFile(),
@@ -87,6 +101,7 @@ class WardDisplayController extends Controller
             foreach ($filteredWard['NurseStation'] as $bed) {
                 if (isset($bed['episodeno']) && !empty($bed['episodeno'])) {
                     $epsdno = $bed['episodeno'];
+                    $mrn = $bed['mrn'];
                     $uripatdemo = env('PAT_DEMO') . $epsdno;
     
                     try {
@@ -95,6 +110,17 @@ class WardDisplayController extends Controller
                             $patdemoContent = json_decode($response->getBody(), true);
                             $bed['patdemo'] = $patdemoContent['data'];
                         }
+
+                        $getflag = PatientManagements::where('mrn', $mrn)->first();
+                        if ($getflag != null) {
+                            $bed['flag'] = $getflag;
+                        }
+
+                        $getcareprov = Careproviders::where('cpName', $patdemoContent['data']['epiDoc'])->select('cpCode', 'cpTypeID')->first();
+                        if ($getcareprov != null) {
+                            $bed['careprov'] = $getcareprov;
+                        }
+
                     } catch (\Exception $e) {
                         Log::error($e->getMessage(), [
                             'file' => $e->getFile(),
@@ -114,7 +140,7 @@ class WardDisplayController extends Controller
         $combinedList = array_merge($bedlist, $bedlistns);
         $bedChunks = array_chunk($combinedList, 15);        
 
-        // dd($chunks);
+        // dd($combinedList);
         
         // Initialize all role arrays
         $rolesct = ['consultant' => '', 'firstcall' => '', 'secondcall' => '', 'thirdcall' => '', 'icuam' => '', 'icupm' => ' '];
