@@ -12,21 +12,21 @@
             <table class="table table-striped table-sm m-0" style="width: 100%; table-layout: fixed; font-size: 1.2rem; border: 1px solid #767676; border-collapse: collapse;">
                 <tbody style="font-size: 1.8rem; color:#000000; font-weight: 600;">
                     <tr>
-                        <td style="padding: 3px; width: 10%; border: 1px solid #767676;"><b>Consultant</b></td>
+                        <td style="padding: 3px; width: 10%; border: 1px solid #767676; text-align: center;"><b>Consultant</b></td>
                         <td class="text-truncate" style="padding: 3px; border: 1px solid #767676;">{{ $rolesct['consultant'] }}</td>
-                        <td style="padding: 3px; width: 10%; border: 1px solid #767676;"><b>1st Call</b></td>
+                        <td style="padding: 3px; width: 10%; border: 1px solid #767676; text-align: center;"><b>1st Call</b></td>
                         <td class="text-truncate" style="padding: 3px; border: 1px solid #767676; ">{{ $rolesct['firstcall'] }}</td>
                     </tr>
                     <tr>
-                        <td style="padding: 3px; width: 10%; border: 1px solid #767676;"><b>2nd Call</b></td>
+                        <td style="padding: 3px; width: 10%; border: 1px solid #767676; text-align: center;"><b>2nd Call</b></td>
                         <td class="text-truncate" style="padding: 3px; border: 1px solid #767676;">{{ $rolesct['secondcall'] }}</td>
-                        <td style="padding: 3px; width: 10%; border: 1px solid #767676;"><b>3rd Call</b></td>
+                        <td style="padding: 3px; width: 10%; border: 1px solid #767676; text-align: center;"><b>3rd Call</b></td>
                         <td class="text-truncate" style="padding: 3px; border: 1px solid #767676;">{{ $rolesct['thirdcall'] }}</td>
                     </tr>
                     <tr>
-                        <td style="padding: 3px; width: 10%; border: 1px solid #767676;"><b>ICU AM</b></td>
+                        <td style="padding: 3px; width: 10%; border: 1px solid #767676; text-align: center;"><b>ICU AM</b></td>
                         <td class="text-truncate" style="padding: 3px; border: 1px solid #767676;">{{ $rolesct['icuam'] }}</td>
-                        <td style="padding: 3px; width: 10%; border: 1px solid #767676;"><b>ICU PM</b></td>
+                        <td style="padding: 3px; width: 10%; border: 1px solid #767676; text-align: center;"><b>ICU PM</b></td>
                         <td class="text-truncate" style="padding: 3px; border: 1px solid #767676; ">{{ $rolesct['icupm'] }}</td>
                     </tr>
                 </tbody>
