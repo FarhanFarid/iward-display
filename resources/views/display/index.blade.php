@@ -37,14 +37,14 @@
             <div class="carousel-item active">
                 @include('display.general.updates.oncallone')
             </div>
-            <div class="carousel-item">
+            {{-- <div class="carousel-item">
                 @include('display.general.updates.oncalltwo')
             </div>
             @foreach($bedChunks as $index => $chunk)
                 <div class="carousel-item">
                     @include('display.sections.patients', ['chunk' => $chunk, 'getward' => $getward])
                 </div>
-            @endforeach
+            @endforeach --}}
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
