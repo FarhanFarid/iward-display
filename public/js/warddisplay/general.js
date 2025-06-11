@@ -32,4 +32,18 @@ $(document).ready(function () {
     setInterval(function() {
         $("#sa-section").load("/refresh/sa?ward=" + ward);
     }, 10000 ); // Reload every 5 seconds
+
+    const ward = "{{ request()->route('ward') }}";
+
+    function updateClock() {
+        const now = new Date();
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const seconds = String(now.getSeconds()).padStart(2, '0');
+        const currentTime = `${hours}:${minutes}:${seconds}`;
+        document.getElementById('live-clock').textContent = currentTime;
+    }
+
+    setInterval(updateClock, 1000);
+    updateClock();
 });

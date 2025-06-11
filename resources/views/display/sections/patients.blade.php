@@ -1,16 +1,4 @@
-<div class="row mt-20 px-15" style="justify-content: center; align-items: center;">
-    <div class="card card-custom gutter-b" style="border-radius: 10px !important; background-color: #75e6ff; border: solid; border-color: #ffffff; width: 100%;">
-        <div class="row m-3">
-            <div class="col-md-12">
-                <h1 style="padding: 0.5rem !important; margin-bottom: 0px !important; color: #000000; display: flex; align-items: center; justify-content: center; gap: 10px;">
-                    WARD {{ $getward->location_name ?? $ward }}
-                </h1>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="row mt-10 px-15">
+<div class="row mt-10 px-5">
     <div class="card card-custom" style="width: 100%; border-radius: 10px; background-color: #e1faff; border: 1px solid #ddd; padding: 1.5rem;">
         <div style="background-color: #007dca; padding: 7px; border-radius: 10px; text-align: center;">
             <span style="color: #ffffff; font-weight: 1000; -webkit-text-stroke: 1px black; font-size: 22px;">
@@ -31,11 +19,11 @@
                         <th style="width: 9%; padding: 2px; border: 1px solid #ffffff;">Status</th>
                         <th style="width: 8%; padding: 2px; border: 1px solid #ffffff;">MRN</th>
                         <th style="width: 10%; padding: 2px; border: 1px solid #ffffff;">Doctor</th>
-                        <th style="width: 10%; padding: 2px; border: 1px solid #ffffff;">Procedure</th>
-                        <th style="width: 15%; padding: 2px; border: 1px solid #ffffff;">Fasting</th>
+                        <th style="width: 10%; padding: 2px; border: 1px solid #ffffff;">Procedure / Surgery</th>
                         <th style="width: 15%; padding: 2px; border: 1px solid #ffffff;">Nil By Mouth</th>
                         <th style="width: 10%; padding: 2px; border: 1px solid #ffffff;">LOS</th>
-                        <th style="width: 13%; padding: 2px; border: 1px solid #ffffff;">Remarks</th>
+                        <th style="width: 13%; padding: 2px; border: 1px solid #ffffff;">Alert</th>
+                        <th style="width: 15%; padding: 2px; border: 1px solid #ffffff;">Remarks</th>
                     </tr>
                 </thead>
                 <tbody style="color: #000000; font-weight: 400;">
@@ -89,15 +77,8 @@
                                     @endif
                                 </td>
                                 <td class="text-center" style="padding: 2px; border: 1px solid #ffffff;">
-                                    @if(isset($bed['flag']) && $bed['flag']->fasting == 1)
-                                        {{$bed['flag']->fasting_remark}}
-                                    @else
-                                      -
-                                    @endif
-                                </td>
-                                <td class="text-center" style="padding: 2px; border: 1px solid #ffffff;">
                                     @if(isset($bed['flag']) && $bed['flag']->nbm == 1)
-                                        {{$bed['flag']->nbm_remark}}
+                                        <pre style="color: #000000; font-weight: 400; font-size: 1.3rem; font-family: 'Poppins', sans-serif; ">{{$bed['flag']->nbm_remark}}</pre>
                                     @else
                                       -
                                     @endif
@@ -157,6 +138,13 @@
                                         <img src="{{ asset('media/logo/discharge-logo.png') }}" class="w-20px">
                                     @endif
                                 </td>
+                                <td class="text-center" style="padding: 2px; border: 1px solid #ffffff;">
+                                    @if(isset($bed['flag']) && $bed['flag']->fasting == 1)
+                                        <pre style="color: #000000; font-weight: 400; font-size: 1.3rem; font-family: 'Poppins', sans-serif; ">{{$bed['flag']->fasting_remark}}</pre>
+                                    @else
+                                      -
+                                    @endif
+                                </td>
                             @elseif (!empty($bed['bedstatus']) && $bed['bedstatus'] == "Unavailable")
                                 <td class="text-center" style="padding: 2px; border: 1px solid #ffffff;">{{ $bed['bedstatus'] }}</td>
                                 <td class="text-center" style="padding: 2px; border: 1px solid #ffffff;">-</td>
@@ -164,8 +152,8 @@
                                 <td class="text-center" style="padding: 2px; border: 1px solid #ffffff;">-</td>
                                 <td class="text-center" style="padding: 2px; border: 1px solid #ffffff;">-</td>
                                 <td class="text-center" style="padding: 2px; border: 1px solid #ffffff;">-</td>
-                                <td class="text-center" style="padding: 2px; border: 1px solid #ffffff;">-</td>
                                 <td class="text-center" style="padding: 2px; border: 1px solid #ffffff;">{{ $bed['bedstatuscmt'] }}</td>
+                                <td class="text-center" style="padding: 2px; border: 1px solid #ffffff;">-</td>
                             @else
                                 <td class="text-center" style="padding: 2px; border: 1px solid #ffffff;">Unoccupied</td>
                                 <td class="text-center" style="padding: 2px; border: 1px solid #ffffff;">-</td>

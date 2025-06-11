@@ -3,7 +3,7 @@
     <div class="row mt-2">
         <div style="background-color: #007dca; padding: 10px; border-radius: 10px; text-align: center; width: 95%; padding-top: 5px !important; padding-bottom: 5px !important;">
             <span style="color: #ffffff; margin: 0; font-weight: 1000; -webkit-text-stroke: 1px black; font-size: 22px !important;">
-                EMERGENCY RESPONSE TEAM
+                AREA RESPONSE TEAM
             </span>
         </div>
     </div>

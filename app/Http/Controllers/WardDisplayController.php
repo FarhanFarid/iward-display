@@ -138,7 +138,7 @@ class WardDisplayController extends Controller
         }
 
         $combinedList = array_merge($bedlist, $bedlistns);
-        $bedChunks = array_chunk($combinedList, 15);        
+        $bedChunks = array_chunk($combinedList, 10);        
 
         // dd($combinedList);
         

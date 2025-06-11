@@ -23,6 +23,7 @@
 				padding: 0;
 				display: flex;
 				flex-direction: column;
+				overflow-x: hidden;
 			}
 			.content-wrapper {
 				flex-grow: 1; /* Ensures it takes up available space */
@@ -47,6 +48,10 @@
 
 			.custom-bordered {
 				border-color: #1a7b15 !important;
+			}
+
+			.no-scroll-x {
+				overflow-x: hidden !important;
 			}
 		</style>
 		@stack('css')
