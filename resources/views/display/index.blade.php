@@ -9,9 +9,9 @@
             <div class="row m-3">
                 <div class="col-md-12">
                     <div style="position: relative; height: 60px; display: flex; align-items: center; justify-content: center;">
-                        <h1 style="margin: 0; color: #000000; position: absolute; left: 50%; transform: translateX(-50%);">
-                            WARD {{ $getward->location_name }}
-                        </h1>
+                        <span style="margin: 0; color: #000000; position: absolute; left: 50%; transform: translateX(-50%); font-size: 30px;">
+                           <b>WARD {{ $getward->location_name }}</b> 
+                        </span>
                         <div id="live-clock" style="
                             position: absolute;
                             right: 0;
