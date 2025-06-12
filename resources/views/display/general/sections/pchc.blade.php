@@ -9,25 +9,25 @@
 
     <div class="row mt-3 px-2">
         <div class="mt-2" style="overflow-y: auto; flex: 1; padding: 0 10px;">
-            <table class="table table-striped table-sm m-0" style="width: 100%; table-layout: fixed; font-size: 1.2rem; border: 1px solid #ffffff; border-collapse: collapse;">
-                <tbody style="font-size: 1.7rem; color:#000000; font-weight: 400;">
+            <table class="table table-striped table-sm m-0" style="width: 100%; table-layout: fixed; font-size: 1.2rem; border: 1px solid #767676; border-collapse: collapse;">
+                <tbody style="font-size: 1.8rem; color:#000000; font-weight: 600;">
                     <tr>
-                        <td style="padding: 3px; width: 10%; border: 1px solid #ffffff;"><b>Consultant</b></td>
-                        <td class="text-truncate" style="padding: 3px; border: 1px solid #ffffff;">{{ $rolespchc['consultant'] }}</td>
-                        <td style="padding: 3px; width: 10%; border: 1px solid #ffffff;"><b>Cardiologist</b></td>
-                        <td class="text-truncate" style="padding: 3px; border: 1px solid #ffffff; ">{{ $rolespchc['cardiologist'] }}</td>
+                        <td style="padding: 3px; width: 10%; border: 1px solid #767676; text-align: center;"><b>Consultant</b></td>
+                        <td class="text-truncate" style="padding: 3px; border: 1px solid #767676;">{{ $rolespchc['consultant'] }}</td>
+                        <td style="padding: 3px; width: 10%; border: 1px solid #767676; text-align: center;"><b>Cardiologist</b></td>
+                        <td class="text-truncate" style="padding: 3px; border: 1px solid #767676; ">{{ $rolespchc['cardiologist'] }}</td>
                     </tr>
                     <tr>
-                        <td style="padding: 3px; width: 10%; border: 1px solid #ffffff;"><b>1st Call</b></td>
-                        <td class="text-truncate" style="padding: 3px; border: 1px solid #ffffff;">{{ $rolespchc['firstcall'] }}</td>
-                        <td style="padding: 3px; width: 10%; border: 1px solid #ffffff;"><b>2nd Call</b></td>
-                        <td class="text-truncate" style="padding: 3px; border: 1px solid #ffffff;">{{ $rolespchc['secondcall'] }}</td>
+                        <td style="padding: 3px; width: 10%; border: 1px solid #767676; text-align: center;"><b>1st Call</b></td>
+                        <td class="text-truncate" style="padding: 3px; border: 1px solid #767676;">{{ $rolespchc['firstcall'] }}</td>
+                        <td style="padding: 3px; width: 10%; border: 1px solid #767676; text-align: center;"><b>2nd Call</b></td>
+                        <td class="text-truncate" style="padding: 3px; border: 1px solid #767676;">{{ $rolespchc['secondcall'] }}</td>
                     </tr>
                     <tr>
-                        <td style="padding: 3px; width: 10%; border: 1px solid #ffffff;"><b>MO Call</b></td>
-                        <td class="text-truncate" style="padding: 3px; border: 1px solid #ffffff;">{{ $rolespchc['mo'] }}</td>
-                        <td style="padding: 3px; width: 10%; border: 1px solid #ffffff;"></td>
-                        <td class="text-truncate" style="padding: 3px; border: 1px solid #ffffff;"></td>
+                        <td style="padding: 3px; width: 10%; border: 1px solid #767676; text-align: center;"><b>MO Call</b></td>
+                        <td class="text-truncate" style="padding: 3px; border: 1px solid #767676;">{{ $rolespchc['mo'] }}</td>
+                        <td style="padding: 3px; width: 10%; border: 1px solid #767676; text-align: center;"></td>
+                        <td class="text-truncate" style="padding: 3px; border: 1px solid #767676;"></td>
                     </tr>
                 </tbody>
             </table>

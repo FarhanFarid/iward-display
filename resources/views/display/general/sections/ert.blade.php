@@ -9,39 +9,39 @@
     </div>
     <!-- Table Container -->
     <div class="mt-10" style="overflow-y: auto; flex: 1; padding: 0 10px;">
-        <table class="table table-striped m-0" style="width: 100%; table-layout: fixed; font-size: 1.7rem; border-collapse: collapse; border: 1px solid #ffffff;">
+        <table class="table table-striped m-0" style="width: 100%; table-layout: fixed; font-size: 1.8rem; border-collapse: collapse; border: 1px solid #767676;">
             <thead>
                 <tr style="background-color: #3fdcff; color: #000000; font-weight: 600;" class="text-center">
-                    <th style="width: 10%; padding: 2px; border: 1px solid #ffffff;">Role</th>
-                    <th style="width: 30%; padding: 2px; border: 1px solid #ffffff;">AM</th>
-                    <th style="width: 30%; padding: 2px; border: 1px solid #ffffff;">PM</th>
-                    <th style="width: 30%; padding: 2px; border: 1px solid #ffffff;">On Call</th>
+                    <th style="width: 10%; padding: 2px; border: 1px solid #767676;">Role</th>
+                    <th style="width: 30%; padding: 2px; border: 1px solid #767676;">AM</th>
+                    <th style="width: 30%; padding: 2px; border: 1px solid #767676;">PM</th>
+                    <th style="width: 30%; padding: 2px; border: 1px solid #767676;">On Call</th>
                 </tr>
             </thead>
-            <tbody style="color: #000000; font-weight: 400;">
+            <tbody style="color: #000000; font-weight: 600;">
                 <tr>
-                    <td style="padding: 2px; border: 1px solid #ffffff;" class="text-center"><b>Incident Officer</b></td>
-                    <td style="padding: 2px; border: 1px solid #ffffff;" class="text-center text-truncate">{{ $rolesert['ioam'] }}</td>
-                    <td style="padding: 2px; border: 1px solid #ffffff;" class="text-center text-truncate">{{ $rolesert['iopm'] }}</td>
-                    <td style="padding: 2px; border: 1px solid #ffffff;" class="text-center text-truncate">{{ $rolesert['iooncall'] }}</td>
+                    <td style="padding: 2px; border: 1px solid #767676;" class="text-center"><b>Incident Officer</b></td>
+                    <td style="padding: 2px; border: 1px solid #767676;" class="text-center text-truncate">{{ $rolesert['ioam'] }}</td>
+                    <td style="padding: 2px; border: 1px solid #767676;" class="text-center text-truncate">{{ $rolesert['iopm'] }}</td>
+                    <td style="padding: 2px; border: 1px solid #767676;" class="text-center text-truncate">{{ $rolesert['iooncall'] }}</td>
                 </tr>
                 <tr>
-                    <td style="padding: 2px; border: 1px solid #ffffff;" class="text-center"><b>Fire Warden</b></td>
-                    <td style="padding: 2px; border: 1px solid #ffffff;" class="text-center text-truncate">{{ $rolesert['fwam'] }}</td>
-                    <td style="padding: 2px; border: 1px solid #ffffff;" class="text-center text-truncate">{{ $rolesert['fwpm'] }}</td>
-                    <td style="padding: 2px; border: 1px solid #ffffff;" class="text-center text-truncate">{{ $rolesert['fwoncall'] }}</td>
+                    <td style="padding: 2px; border: 1px solid #767676;" class="text-center"><b>Fire Warden</b></td>
+                    <td style="padding: 2px; border: 1px solid #767676;" class="text-center text-truncate">{{ $rolesert['fwam'] }}</td>
+                    <td style="padding: 2px; border: 1px solid #767676;" class="text-center text-truncate">{{ $rolesert['fwpm'] }}</td>
+                    <td style="padding: 2px; border: 1px solid #767676;" class="text-center text-truncate">{{ $rolesert['fwoncall'] }}</td>
                 </tr>
                 <tr>
-                    <td style="padding: 2px; border: 1px solid #ffffff;" class="text-center"><b>Fire Squad</b></td>
-                    <td style="padding: 2px; border: 1px solid #ffffff;" class="text-center text-truncate">{{ $rolesert['fsam'] }}</td>
-                    <td style="padding: 2px; border: 1px solid #ffffff;" class="text-center text-truncate">{{ $rolesert['fspm'] }}</td>
-                    <td style="padding: 2px; border: 1px solid #ffffff;" class="text-center text-truncate">{{ $rolesert['fsoncall'] }}</td>
+                    <td style="padding: 2px; border: 1px solid #767676;" class="text-center"><b>Fire Squad</b></td>
+                    <td style="padding: 2px; border: 1px solid #767676;" class="text-center text-truncate">{{ $rolesert['fsam'] }}</td>
+                    <td style="padding: 2px; border: 1px solid #767676;" class="text-center text-truncate">{{ $rolesert['fspm'] }}</td>
+                    <td style="padding: 2px; border: 1px solid #767676;" class="text-center text-truncate">{{ $rolesert['fsoncall'] }}</td>
                 </tr>
                 <tr>
-                    <td style="padding: 2px; border: 1px solid #ffffff;" class="text-center"><b>Rescue Squad</b></td>
-                    <td style="padding: 2px; border: 1px solid #ffffff;" class="text-center text-truncate">{{ $rolesert['rsam'] }}</td>
-                    <td style="padding: 2px; border: 1px solid #ffffff;" class="text-center text-truncate">{{ $rolesert['rspm'] }}</td>
-                    <td style="padding: 2px; border: 1px solid #ffffff;" class="text-center text-truncate">{{ $rolesert['rsoncall'] }}</td>
+                    <td style="padding: 2px; border: 1px solid #767676;" class="text-center"><b>Rescue Squad</b></td>
+                    <td style="padding: 2px; border: 1px solid #767676;" class="text-center text-truncate">{{ $rolesert['rsam'] }}</td>
+                    <td style="padding: 2px; border: 1px solid #767676;" class="text-center text-truncate">{{ $rolesert['rspm'] }}</td>
+                    <td style="padding: 2px; border: 1px solid #767676;" class="text-center text-truncate">{{ $rolesert['rsoncall'] }}</td>
                 </tr>
             </tbody>
         </table>

@@ -8,25 +8,25 @@
     </div>
     <div class="row mt-3 px-2">
         <div class="mt-2" style="overflow-y: auto; flex: 1; padding: 0 10px;">
-            <table class="table table-striped table-sm m-0" style="width: 100%; table-layout: fixed; font-size: 1.2rem; border: 1px solid #ffffff; border-collapse: collapse;">
-                <tbody style="font-size: 1.7rem; color:#000000; font-weight: 400;">
+            <table class="table table-striped table-sm m-0" style="width: 100%; table-layout: fixed; font-size: 1.2rem; border: 1px solid #767676; border-collapse: collapse;">
+                <tbody style="font-size: 1.8rem; color:#000000; font-weight: 600;">
                     <tr>
-                        <td style="padding: 3px; width: 10%; border: 1px solid #ffffff;"><b>Perfusionist</b></td>
-                        <td class="text-truncate" style="padding: 3px; border: 1px solid #ffffff;">{{ $rolesoth['perfusionist'] }}</td>
-                        <td style="padding: 3px; width: 10%; border: 1px solid #ffffff;"><b>Physio</b></td>
-                        <td class="text-truncate" style="padding: 3px; border: 1px solid #ffffff; ">{{ $rolesoth['physiotherapist'] }}</td>
+                        <td style="padding: 3px; width: 10%; border: 1px solid #767676; text-align: center;"><b>Perfusionist</b></td>
+                        <td class="text-truncate" style="padding: 3px; border: 1px solid #767676;">{{ $rolesoth['perfusionist'] }}</td>
+                        <td style="padding: 3px; width: 10%; border: 1px solid #767676; text-align: center;"><b>Physio</b></td>
+                        <td class="text-truncate" style="padding: 3px; border: 1px solid #767676; ">{{ $rolesoth['physiotherapist'] }}</td>
                     </tr>
                     <tr>
-                        <td style="padding: 3px; width: 10%; border: 1px solid #ffffff;"><b>Dietitian</b></td>
-                        <td class="text-truncate" style="padding: 3px; border: 1px solid #ffffff;">{{ $rolesoth['dietitian'] }}</td>
-                        <td style="padding: 3px; width: 10%; border: 1px solid #ffffff;"><b>Resp Lab</b></td>
-                        <td class="text-truncate" style="padding: 3px; border: 1px solid #ffffff;">{{ $rolesoth['resplab'] }}</td>
+                        <td style="padding: 3px; width: 10%; border: 1px solid #767676; text-align: center;"><b>Dietitian</b></td>
+                        <td class="text-truncate" style="padding: 3px; border: 1px solid #767676;">{{ $rolesoth['dietitian'] }}</td>
+                        <td style="padding: 3px; width: 10%; border: 1px solid #767676; text-align: center;"><b>Resp Lab</b></td>
+                        <td class="text-truncate" style="padding: 3px; border: 1px solid #767676;">{{ $rolesoth['resplab'] }}</td>
                     </tr>
                     <tr>
-                        <td style="padding: 3px; width: 10%; border: 1px solid #ffffff;"><b>CVT</b></td>
-                        <td class="text-truncate" style="padding: 3px; border: 1px solid #ffffff;">{{ $rolesoth['cvt'] }}</td>
-                        <td style="padding: 3px; width: 10%; border: 1px solid #ffffff;"></td>
-                        <td class="text-truncate" style="padding: 3px; border: 1px solid #ffffff;"></td>
+                        <td style="padding: 3px; width: 10%; border: 1px solid #767676; text-align: center;"><b>CVT</b></td>
+                        <td class="text-truncate" style="padding: 3px; border: 1px solid #767676;">{{ $rolesoth['cvt'] }}</td>
+                        <td style="padding: 3px;  border: 1px solid #767676; text-align: center;"></td>
+                        <td class="text-truncate" style="padding: 3px; border: 1px solid #767676;"></td>
                     </tr>
                 </tbody>
             </table>

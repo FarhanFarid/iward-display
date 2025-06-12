@@ -34,14 +34,17 @@
     
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
-            {{-- <div class="carousel-item active">
+            <div class="carousel-item active">
                 @include('display.general.updates.oncallone')
             </div>
             <div class="carousel-item">
                 @include('display.general.updates.oncalltwo')
-            </div> --}}
+            </div>
+            <div class="carousel-item">
+                @include('display.general.updates.oncallthree')
+            </div>
             @foreach($bedChunks as $index => $chunk)
-                <div class="carousel-item active">
+                <div class="carousel-item">
                     @include('display.sections.patients', ['chunk' => $chunk, 'getward' => $getward])
                 </div>
             @endforeach
