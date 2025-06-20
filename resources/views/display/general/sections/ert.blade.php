@@ -1,4 +1,4 @@
-<div class="card card-custom gutter-b mt-5" style="border-radius: 10px !important; background-color: #e1faff; border: solid; border-color: #ffffff; width: 100%; height: 300px; display: flex; flex-direction: column;">
+<div class="card card-custom gutter-b mt-5" style="border-radius: 10px !important; background-color: #e1faff; border: solid; border-color: #ffffff; width: 100%; height: 750px; display: flex; flex-direction: column;">
     <!-- Title -->
     <div class="row mt-2">
         <div style="background-color: #007dca; padding: 10px; border-radius: 10px; text-align: center; width: 95%; padding-top: 5px !important; padding-bottom: 5px !important;">
@@ -37,12 +37,27 @@
                     <td style="padding: 2px; border: 1px solid #767676;" class="text-center text-truncate">{{ $rolesert['fspm'] }}</td>
                     <td style="padding: 2px; border: 1px solid #767676;" class="text-center text-truncate">{{ $rolesert['fsoncall'] }}</td>
                 </tr>
-                <tr>
-                    <td style="padding: 2px; border: 1px solid #767676;" class="text-center"><b>Rescue Squad</b></td>
-                    <td style="padding: 2px; border: 1px solid #767676;" class="text-center text-truncate">{{ $rolesert['rsam'] }}</td>
-                    <td style="padding: 2px; border: 1px solid #767676;" class="text-center text-truncate">{{ $rolesert['rspm'] }}</td>
-                    <td style="padding: 2px; border: 1px solid #767676;" class="text-center text-truncate">{{ $rolesert['rsoncall'] }}</td>
-                </tr>
+                @php
+                    $rsam = array_filter([$rolesert['rsam1'] ?? null, $rolesert['rsam2'] ?? null, $rolesert['rsam3'] ?? null, $rolesert['rsam4'] ?? null]);
+                    $rspm = array_filter([$rolesert['rspm1'] ?? null, $rolesert['rspm2'] ?? null, $rolesert['rspm3'] ?? null, $rolesert['rspm4'] ?? null]);
+                    $rsoncall = array_filter([$rolesert['rsoncall1'] ?? null, $rolesert['rsoncall2'] ?? null, $rolesert['rsoncall3'] ?? null, $rolesert['rsoncall4'] ?? null]);
+
+                    $maxRows = max(count($rsam), count($rspm), count($rsoncall));
+                    $maxRows = $maxRows > 0 ? $maxRows : 1; // fallback to at least one row
+                @endphp
+
+                @for ($i = 0; $i < $maxRows; $i++)
+                    <tr>
+                        @if ($i === 0)
+                            <td style="padding: 2px; border: 1px solid #767676;" class="text-center" rowspan="{{ $maxRows }}">
+                                <b>Rescue Squad</b>
+                            </td>
+                        @endif
+                        <td style="padding: 2px; border: 1px solid #767676;" class="text-center text-truncate">{{ $rsam[$i] ?? '' }}</td>
+                        <td style="padding: 2px; border: 1px solid #767676;" class="text-center text-truncate">{{ $rspm[$i] ?? '' }}</td>
+                        <td style="padding: 2px; border: 1px solid #767676;" class="text-center text-truncate">{{ $rsoncall[$i] ?? '' }}</td>
+                    </tr>
+                @endfor
             </tbody>
         </table>
     </div>

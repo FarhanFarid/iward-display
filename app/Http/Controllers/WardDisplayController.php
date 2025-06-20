@@ -149,9 +149,21 @@ class WardDisplayController extends Controller
         $rolesanaes = ['consultant' => '', 'sr' => '', 'sricu' => '', 'mo' => ''];
         $rolespchc = ['consultant' => '', 'cardiologist' => '', 'firstcall' => '', 'secondcall' => '', 'mo' => ''];
         $rolesoth = ['perfusionist' => '', 'dietitian' => '', 'physiotherapist' => '', 'resplab' => '', 'cvt' => ''];
-        $rolesert = ['ioam' => '', 'iopm' => '', 'iooncall' => '', 'fwam' => '', 'fwpm' => '', 'fwoncall' => '', 'fsam' => '', 'fspm' => '', 'fsoncall' => '', 'rsam' => '', 'rspm' => '', 'rsoncall' => ''];
-        $rolessa = ['tlam' => '', 'tlpm' => '', 'tloncall' => '', 'iam' => '', 'ipm' => '', 'ioncall' => '', 'medam' => '', 'medpm' => '', 'medoncall' => '', 'runam' => '', 'runpm' => '', 'runoncall' => '', 'obsam' => '', 'obspm' => '', 'obsoncall' => ''];
-    
+        $rolesert = ['ioam' => '', 'iopm' => '', 'iooncall' => '', 'fwam' => '', 'fwpm' => '', 'fwoncall' => '', 'fsam' => '', 'fspm' => '', 'fsoncall' => '', 'rsam1' => '', 'rspm1' => '', 'rsoncall1' => '', 'rsam2' => '', 'rspm2' => '', 'rsoncall2' => '', 'rsam3' => '', 'rspm3' => '', 'rsoncall3' => '', 'rsam4' => '', 'rspm4' => '', 'rsoncall4' => ''];
+        $rolessa = [
+            'tlam' => '',
+            'tlpm' => '',
+            'tloncall' => '',
+            'iam1' => '', 'iam2' => '', 'iam3' => '', 'iam4' => '', 'iam5' => '', 'iam6' => '',
+            'ipm1' => '', 'ipm2' => '', 'ipm3' => '', 'ipm4' => '', 'ipm5' => '', 'ipm6' => '',
+            'ioncall1' => '', 'ioncall2' => '', 'ioncall3' => '', 'ioncall4' => '', 'ioncall5' => '', 'ioncall6' => '',
+            'medam1' => '', 'medam2' => '', 'medam3' => '', 'medam4' => '',
+            'medpm1' => '', 'medpm2' => '', 'medpm3' => '', 'medpm4' => '',
+            'medoncall1' => '', 'medoncall2' => '', 'medoncall3' => '', 'medoncall4' => '',
+            'runam1' => '', 'runam2' => '', 'runam3' => '', 'runam4' => '', 'runam5' => '', 'runam6' => '',
+            'runpm1' => '', 'runpm2' => '', 'runpm3' => '', 'runpm4' => '', 'runpm5' => '', 'runpm6' => '',
+            'runoncall1' => '', 'runoncall2' => '', 'runoncall3' => '', 'runoncall4' => '', 'runoncall5' => '', 'runoncall6' => '',
+        ];    
         // Assign names to roles if matched
         foreach ($todayctlist as $staff) {
             if (isset($rolesct[$staff->position_type])) {
@@ -197,7 +209,9 @@ class WardDisplayController extends Controller
     
         foreach ($todaysalist as $staff) {
             if (isset($rolessa[$staff->position_type])) {
-                $rolessa[$staff->position_type] = $staff->name;
+                $rolessa[$staff->position_type] = $staff->remarks
+                    ? $staff->name . ' (' . $staff->remarks . ')'
+                    : $staff->name;
             }
         }
     
@@ -363,17 +377,25 @@ class WardDisplayController extends Controller
         $rolesert = [
             'ioam' => '',
             'iopm' => '',
-            'iooncall' => '',
-            'fwam' => '',
-            'fwpm' => '',
-            'fwoncall' => '',
-            'fsam' => '',
-            'fspm' => '',
-            'fsoncall' => '',
-            'rsam' => '',
-            'rspm' => '',
-            'rsoncall' => '',
-        ];
+            'iooncall' => '', 
+            'fwam' => '', 
+            'fwpm' => '', 
+            'fwoncall' => '', 
+            'fsam' => '', 
+            'fspm' => '', 
+            'fsoncall' => '', 
+            'rsam1' => '', 
+            'rspm1' => '', 
+            'rsoncall1' => '', 
+            'rsam2' => '', 
+            'rspm2' => '', 
+            'rsoncall2' => '', 
+            'rsam3' => '', 
+            'rspm3' => '', 
+            'rsoncall3' => '', 
+            'rsam4' => '', 
+            'rspm4' => '', 
+            'rsoncall4' => ''];
 
         foreach ($todayertlist as $staff) {
             if (isset($rolesert[$staff->position_type])) {
@@ -401,23 +423,22 @@ class WardDisplayController extends Controller
             'tlam' => '',
             'tlpm' => '',
             'tloncall' => '',
-            'iam' => '',
-            'ipm' => '',
-            'ioncall' => '',
-            'medam' => '',
-            'medpm' => '',
-            'medoncall' => '',
-            'runam' => '',
-            'runpm' => '',
-            'runoncall' => '',
-            'obsam' => '',
-            'obspm' => '',
-            'obsoncall' => '',
+            'iam1' => '', 'iam2' => '', 'iam3' => '', 'iam4' => '', 'iam5' => '', 'iam6' => '',
+            'ipm1' => '', 'ipm2' => '', 'ipm3' => '', 'ipm4' => '', 'ipm5' => '', 'ipm6' => '',
+            'ioncall1' => '', 'ioncall2' => '', 'ioncall3' => '', 'ioncall4' => '', 'ioncall5' => '', 'ioncall6' => '',
+            'medam1' => '', 'medam2' => '', 'medam3' => '', 'medam4' => '',
+            'medpm1' => '', 'medpm2' => '', 'medpm3' => '', 'medpm4' => '',
+            'medoncall1' => '', 'medoncall2' => '', 'medoncall3' => '', 'medoncall4' => '',
+            'runam1' => '', 'runam2' => '', 'runam3' => '', 'runam4' => '', 'runam5' => '', 'runam6' => '',
+            'runpm1' => '', 'runpm2' => '', 'runpm3' => '', 'runpm4' => '', 'runpm5' => '', 'runpm6' => '',
+            'runoncall1' => '', 'runoncall2' => '', 'runoncall3' => '', 'runoncall4' => '', 'runoncall5' => '', 'runoncall6' => '',
         ];
 
         foreach ($todaysalist as $staff) {
             if (isset($rolessa[$staff->position_type])) {
-                $rolessa[$staff->position_type] = $staff->name;
+                $rolessa[$staff->position_type] = $staff->remarks
+                    ? $staff->name . ' (' . $staff->remarks . ')'
+                    : $staff->name;
             }
         }
 

@@ -62,7 +62,9 @@
 	</body> --}}
     <body id="kt_body" class="auth-bg bgi-size-cover bgi-attachment-fixed bgi-position-center" style="background-color: #f5f5f5;">     
         @yield('content')
-
+		<script>
+			const ward = "{{ request()->route('ward') }}"; // extract from route
+		</script>
 		<script>
 			function checkFullscreen() {
 				if (window.innerHeight === screen.height) {
