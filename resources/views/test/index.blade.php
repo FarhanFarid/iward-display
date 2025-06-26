@@ -1,4 +1,4 @@
-@extends('layouts.display-master')
+{{-- @extends('layouts.display-master')
 
 @section('content')
 
@@ -27,31 +27,15 @@
         </div>
     </div>
 
-    <div id="all-patients-container" style="display: none !important;">
-        <div id="patient-rows-wrapper">
-            <table>
-                <tbody>
-                    @include('display.sections.subviews.patientcontent', ['beds' => $beds])
-                </tbody>
-            </table>
-        </div>
-    </div>
+    @include('display.sections.patients', ['beds' => $beds])
 
-    {{-- ✅ Carousel component --}}
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" data-bs-interval="10000" data-bs-pause="false">
         <div class="carousel-inner">
-            <div class="carousel-item active" data-slide-name="oncallone">
-                @include('display.general.updates.oncallone')
-            </div>
-            <div class="carousel-item" data-slide-name="oncalltwo">
-                @include('display.general.updates.oncalltwo')
-            </div>
-            <div class="carousel-item" data-slide-name="oncallthree">
-                @include('display.general.updates.oncallthree')
-            </div>
-            <div class="carousel-item" data-slide-name="oncallfour">
+            <div class="carousel-item active">
                 @include('display.general.updates.oncallfour')
             </div>
+
+            <div id="patients-slide-container"></div>
         </div>
 
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
@@ -74,5 +58,4 @@
     </footer>
 </div>
 
-@endsection
-
+@endsection --}}

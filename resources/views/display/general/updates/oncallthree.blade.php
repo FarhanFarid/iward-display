@@ -8,7 +8,3 @@
     </div>
 </div>
 
-@push('script')
-    <script src="{{ asset('js/warddisplay/general.js') }}"></script>
-@endpush
-

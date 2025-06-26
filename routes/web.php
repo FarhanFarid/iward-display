@@ -17,4 +17,13 @@ Route::group(['prefix' => 'refresh'], function () {
      Route::get('/other', [WardDisplayController::class, 'oncallOthSec'])->name('refresh.other');
      Route::get('/ert', [WardDisplayController::class, 'oncallErtSec'])->name('refresh.ert');
      Route::get('/sa', [WardDisplayController::class, 'oncallSaSec'])->name('refresh.sa');
+     Route::get('/patient', [WardDisplayController::class, 'patientSec'])->name('refresh.patient');
 });
+
+// Route::group(['prefix' => 'test'], function () {
+//     Route::get('/{ward}', [WardDisplayController::class, 'test'])->name('display.test');
+// });
+
+// Route::get('/refresh/patients/{ward}', function ($ward) {
+//     return view('display.sections.patients', compact('beds'));
+// });

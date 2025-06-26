@@ -22,6 +22,7 @@ use Log;
 
 class WardDisplayController extends Controller
 {
+
     public function index(Request $request, $ward)
     {
         $ward = strtoupper($ward);
@@ -71,7 +72,9 @@ class WardDisplayController extends Controller
                             $bed['patdemo'] = $patdemoContent['data'];
                         }
 
-                        $getflag = PatientManagements::where('mrn', $mrn)->first();
+                        $getflag = PatientManagements::with(['procedureList' => function($query) {
+                            $query->where('status_id', 2);
+                        }])->where('mrn', $mrn)->first();
                         if ($getflag != null) {
                             $bed['flag'] = $getflag;
                         }
@@ -111,7 +114,9 @@ class WardDisplayController extends Controller
                             $bed['patdemo'] = $patdemoContent['data'];
                         }
 
-                        $getflag = PatientManagements::where('mrn', $mrn)->first();
+                        $getflag = PatientManagements::with(['procedureList' => function($query) {
+                            $query->where('status_id', 2);
+                        }])->where('mrn', $mrn)->first();
                         if ($getflag != null) {
                             $bed['flag'] = $getflag;
                         }
@@ -137,10 +142,9 @@ class WardDisplayController extends Controller
             }
         }
 
-        $combinedList = array_merge($bedlist, $bedlistns);
-        $bedChunks = array_chunk($combinedList, 10);        
+        $beds = array_merge($bedlist, $bedlistns);
 
-        // dd($combinedList);
+        // dd($beds[1]);
         
         // Initialize all role arrays
         $rolesct = ['consultant' => '', 'firstcall' => '', 'secondcall' => '', 'thirdcall' => '', 'icuam' => '', 'icupm' => ' '];
@@ -227,7 +231,7 @@ class WardDisplayController extends Controller
             'getward',
             'bedlistns',
             'bedlist',
-            'bedChunks',
+            'beds',
         ));
     }    
 
@@ -444,6 +448,124 @@ class WardDisplayController extends Controller
 
         return view('display.general.sections.staffassignment', compact('rolessa'));
     }
+
+    public function patientSec(Request $request){
+
+        $ward = strtoupper($request->get('ward'));
+
+        $getward = WardLocation::where('location_code', $ward)->first();
+        $uri = env('BED_SEARCH');
+        $client = new \GuzzleHttp\Client(['defaults' => ['verify' => false]]);
+        $response = $client->request('GET', $uri);
+        $content = json_decode($response->getBody(), true);
+    
+        // Filter the ward
+        $filteredWard = null;
+        foreach ($content['WardList'] as $wardData) {
+            if (isset($wardData['wardcode']) && $wardData['wardcode'] === $ward) {
+                $filteredWard = $wardData;
+                break;
+            }
+        }
+    
+        $bedlist = [];
+        $bedlistns = [];
+
+
+        if ($filteredWard && isset($filteredWard['BedList'])) {
+            foreach ($filteredWard['BedList'] as $bed) {
+                if (isset($bed['episodeno']) && !empty($bed['episodeno'])) {
+                    $epsdno = $bed['episodeno'];
+                    $mrn = $bed['mrn'];
+                    $uripatdemo = env('PAT_DEMO') . $epsdno;
+    
+                    try {
+                        $response = $client->request('GET', $uripatdemo);
+                        if ($response->getStatusCode() == 200) {
+                            $patdemoContent = json_decode($response->getBody(), true);
+                            $bed['patdemo'] = $patdemoContent['data'];
+                        }
+
+                        $getflag = PatientManagements::where('mrn', $mrn)->first();
+                        if ($getflag != null) {
+                            $bed['flag'] = $getflag;
+                        }
+
+                        $getcareprov = Careproviders::where('cpName', $patdemoContent['data']['epiDoc'])->select('cpCode', 'cpTypeID')->first();
+                        if ($getcareprov != null) {
+                            $bed['careprov'] = $getcareprov;
+                        }
+
+                    } catch (\Exception $e) {
+                        Log::error($e->getMessage(), [
+                            'file' => $e->getFile(),
+                            'line' => $e->getLine(),
+                        ]);
+                        return response()->json([
+                            'status' => 'failed',
+                            'message' => 'Internal error happened. Try again',
+                        ], 200);
+                    }
+                }
+    
+                $bedlist[] = $bed;
+            }
+        }
+
+        if ($filteredWard && isset($filteredWard['NurseStation'])) {
+            foreach ($filteredWard['NurseStation'] as $bed) {
+                if (isset($bed['episodeno']) && !empty($bed['episodeno'])) {
+                    $epsdno = $bed['episodeno'];
+                    $mrn = $bed['mrn'];
+                    $uripatdemo = env('PAT_DEMO') . $epsdno;
+    
+                    try {
+                        $response = $client->request('GET', $uripatdemo);
+                        if ($response->getStatusCode() == 200) {
+                            $patdemoContent = json_decode($response->getBody(), true);
+                            $bed['patdemo'] = $patdemoContent['data'];
+                        }
+
+                        $getflag = PatientManagements::where('mrn', $mrn)->first();
+                        if ($getflag != null) {
+                            $bed['flag'] = $getflag;
+                        }
+
+                        $getcareprov = Careproviders::where('cpName', $patdemoContent['data']['epiDoc'])->select('cpCode', 'cpTypeID')->first();
+                        if ($getcareprov != null) {
+                            $bed['careprov'] = $getcareprov;
+                        }
+
+                    } catch (\Exception $e) {
+                        Log::error($e->getMessage(), [
+                            'file' => $e->getFile(),
+                            'line' => $e->getLine(),
+                        ]);
+                        return response()->json([
+                            'status' => 'failed',
+                            'message' => 'Internal error happened. Try again',
+                        ], 200);
+                    }
+                }
+    
+                $bedlistns[] = $bed;
+            }
+        }
+
+        $beds = array_merge($bedlist, $bedlistns);
+
+        dd($beds);
+
+        return view('display.sections.subviews.patientcontent', compact(
+            'getward',
+            'bedlistns',
+            'bedlist',
+            'beds',
+        ));
+
+    }
+
+
 
 
 }

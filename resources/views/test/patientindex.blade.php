@@ -1,4 +1,4 @@
-<div id="all-patients-container" style="visibility: hidden; position: absolute; left: -9999px;">
+{{-- <div id="all-patients-container" style="visibility: hidden; position: absolute; left: -9999px;">
     <div id="patient-rows-wrapper">
         <table>
             <tbody>
@@ -6,4 +6,4 @@
             </tbody>
         </table>
     </div>
-</div>
+</div> --}}
