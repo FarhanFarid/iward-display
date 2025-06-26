@@ -1,4 +1,4 @@
-<div class="card card-custom gutter-b mt-5" style="border-radius: 10px !important; background-color: #e1faff; border: solid; border-color: #ffffff; width: 100%; height: 230px">
+<div class="card card-custom gutter-b mt-5" style="border-radius: 10px !important; background-color: #e1faff; border: solid; border-color: #ffffff; width: 100%; height: 270px">
     <div class="row mt-2">
         <div style="background-color: #007dca; padding: 10px; border-radius: 10px; text-align: center; width: 95%; padding-top: 5px !important; padding-bottom: 5px !important;">
             <span style="color: #ffffff; margin: 0; font-weight: 1000; -webkit-text-stroke: 1px black; font-size: 22px !important;">
@@ -38,6 +38,15 @@
                         <td style="padding: 3px; border: 1px solid #767676;"></td>
                         <td style="padding: 3px; border: 1px solid #767676; text-align: center;"><b>ON Call</b></td>
                         <td class="text-truncate" style="padding: 3px; border: 1px solid #767676;">{{ $rolesnm['oncall'] }}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" style="padding: 3px; border: 1px solid #767676; text-align: center;">
+                            @if ($nmremark->status_id == 1)
+                                {{ $nmremark->remark }}
+                            @else
+                                -
+                            @endif
+                        </td>
                     </tr>
                 </tbody>
             </table>

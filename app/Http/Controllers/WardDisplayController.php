@@ -35,6 +35,7 @@ class WardDisplayController extends Controller
         $todayothlist = OncallOtherList::where('oncall_date', Carbon::today())->where('status_id', 2)->get();
         $todayertlist = OncallResponseTeamList::where('oncall_date', Carbon::today())->where('status_id', 2)->where('ward_location', $ward)->get();
         $todaysalist = OncallStaffAssignmentList::where('oncall_date', Carbon::today())->where('status_id', 2)->where('ward_location', $ward)->get();
+        $nmremark = OncallNurseManagerList::where('remark', '!=', null)->first();
     
         $getward = WardLocation::where('location_code', $ward)->first();
     
@@ -232,6 +233,7 @@ class WardDisplayController extends Controller
             'bedlistns',
             'bedlist',
             'beds',
+            'nmremark'
         ));
     }    
 
@@ -285,6 +287,7 @@ class WardDisplayController extends Controller
     public function oncallNmSec(Request $request){
 
         $todaynmlist = OncallNurseManagerList::where('oncall_date', Carbon::today())->where('status_id', 2)->get();
+        $nmremark = OncallNurseManagerList::where('remark', '!=', null)->first();
 
         $rolesnm = [
             'firstcall' => '',
@@ -300,7 +303,7 @@ class WardDisplayController extends Controller
             }
         }
 
-        return view('display.general.sections.nursemanager', compact('rolesnm'));
+        return view('display.general.sections.nursemanager', compact('rolesnm', 'nmremark'));
     }
 
     public function oncallAnaesSec(Request $request){
