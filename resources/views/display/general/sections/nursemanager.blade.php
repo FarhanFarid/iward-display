@@ -41,7 +41,7 @@
                     </tr>
                     <tr>
                         <td colspan="4" style="padding: 3px; border: 1px solid #767676; text-align: center;">
-                            @if ($nmremark->status_id == 1)
+                            @if (isset($nmremark) && $nmremark->status_id == 1)
                                 {{ $nmremark->remark }}
                             @else
                                 -
