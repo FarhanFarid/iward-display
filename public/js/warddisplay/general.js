@@ -159,7 +159,7 @@ $(document).ready(function () {
     
         // Reload full page
         location.reload();
-    }, 65000); // 1 minute
+    }, 180000); // 3 minute
 
     // ✅ Delay the initial rebuild until DOM is stable and rows exist
     setTimeout(() => {
